@@ -6,4 +6,4 @@ var requestListener = function (req, res) {
 }
 
 var server = http.createServer(requestListener);
-server.listen(8080);
+server.listen(process.env.PORT || 8080);
