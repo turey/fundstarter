@@ -1,8 +1,13 @@
 var fs = require('fs');
 var http = require('http');
 var requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end(fs.readFileSync("fundstarter.html"));
+  fs.readFile("fundstarter.html", 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    res.writeHead(200);
+    res.end(data);
+  });
 }
 
 var server = http.createServer(requestListener);
